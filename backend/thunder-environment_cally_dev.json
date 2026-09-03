@@ -1,0 +1,25 @@
+{
+  "clientName": "Thunder Client",
+  "environmentName": "Cally Development Environment",
+  "environmentId": "cally_dev_env",
+  "dateExported": "2026-09-03T15:45:00.000Z",
+  "version": "1.0",
+  "variables": [
+    {
+      "name": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "name": "wsUrl",
+      "value": "ws://localhost:8080"
+    },
+    {
+      "name": "roomId",
+      "value": "cally-demo123"
+    },
+    {
+      "name": "hostToken",
+      "value": "token_cally-demo123_user_host"
+    }
+  ]
+}

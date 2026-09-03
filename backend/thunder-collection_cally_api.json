@@ -1,0 +1,160 @@
+{
+  "clientName": "Thunder Client",
+  "collectionName": "Cally API & WebSocket Signaling",
+  "collectionId": "cally_api_collection",
+  "dateExported": "2026-09-03T15:45:00.000Z",
+  "version": "1.0",
+  "folders": [
+    {
+      "_id": "f_health",
+      "name": "1. Health & Status",
+      "containerId": ""
+    },
+    {
+      "_id": "f_rooms",
+      "name": "2. Room Management",
+      "containerId": ""
+    },
+    {
+      "_id": "f_user",
+      "name": "3. User & Session",
+      "containerId": ""
+    },
+    {
+      "_id": "f_websocket",
+      "name": "4. Real-time WebSocket Signaling",
+      "containerId": ""
+    }
+  ],
+  "requests": [
+    {
+      "_id": "req_health",
+      "colId": "cally_api_collection",
+      "containerId": "f_health",
+      "name": "Get Service Health",
+      "url": "{{baseUrl}}/api/v1/health",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2026-09-03T15:45:00.000Z",
+      "headers": []
+    },
+    {
+      "_id": "req_create_room",
+      "colId": "cally_api_collection",
+      "containerId": "f_rooms",
+      "name": "Create New Call Room",
+      "url": "{{baseUrl}}/api/v1/rooms",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2026-09-03T15:45:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Engineering Design Review\",\n  \"maxParticipants\": 6,\n  \"hostDisplayName\": \"Taiwo (Host)\"\n}",
+        "form": []
+      }
+    },
+    {
+      "_id": "req_list_rooms",
+      "colId": "cally_api_collection",
+      "containerId": "f_rooms",
+      "name": "List Active Rooms",
+      "url": "{{baseUrl}}/api/v1/rooms",
+      "method": "GET",
+      "sortNum": 21000,
+      "created": "2026-09-03T15:45:00.000Z",
+      "headers": []
+    },
+    {
+      "_id": "req_get_room",
+      "colId": "cally_api_collection",
+      "containerId": "f_rooms",
+      "name": "Get Room Info by ID",
+      "url": "{{baseUrl}}/api/v1/rooms/{{roomId}}",
+      "method": "GET",
+      "sortNum": 22000,
+      "created": "2026-09-03T15:45:00.000Z",
+      "headers": []
+    },
+    {
+      "_id": "req_join_room",
+      "colId": "cally_api_collection",
+      "containerId": "f_rooms",
+      "name": "Join Room & Get Token",
+      "url": "{{baseUrl}}/api/v1/rooms/{{roomId}}/join",
+      "method": "POST",
+      "sortNum": 23000,
+      "created": "2026-09-03T15:45:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"displayName\": \"Guest Participant\"\n}",
+        "form": []
+      }
+    },
+    {
+      "_id": "req_get_participants",
+      "colId": "cally_api_collection",
+      "containerId": "f_rooms",
+      "name": "Get Room Participants",
+      "url": "{{baseUrl}}/api/v1/rooms/{{roomId}}/participants",
+      "method": "GET",
+      "sortNum": 24000,
+      "created": "2026-09-03T15:45:00.000Z",
+      "headers": []
+    },
+    {
+      "_id": "req_delete_room",
+      "colId": "cally_api_collection",
+      "containerId": "f_rooms",
+      "name": "Delete Room (Host Only)",
+      "url": "{{baseUrl}}/api/v1/rooms/{{roomId}}",
+      "method": "DELETE",
+      "sortNum": 25000,
+      "created": "2026-09-03T15:45:00.000Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{hostToken}}"
+        }
+      ]
+    },
+    {
+      "_id": "req_get_me",
+      "colId": "cally_api_collection",
+      "containerId": "f_user",
+      "name": "Get Current User Session Info",
+      "url": "{{baseUrl}}/api/v1/user/me",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2026-09-03T15:45:00.000Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer token_cally-123_user_456"
+        }
+      ]
+    },
+    {
+      "_id": "req_ws_connect",
+      "colId": "cally_api_collection",
+      "containerId": "f_websocket",
+      "name": "WebSocket Signaling Connection",
+      "url": "ws://localhost:8080/ws/rooms/{{roomId}}?userId=user_dev1&displayName=Alice",
+      "method": "GET",
+      "sortNum": 40000,
+      "created": "2026-09-03T15:45:00.000Z",
+      "headers": []
+    }
+  ]
+}
